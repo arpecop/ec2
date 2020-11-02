@@ -66,19 +66,19 @@ if (cluster.isMaster) {
     });
   });
   app.get("/hook", function (req, res) {
-    console.log('hooked');
+    console.log("hooked");
     exec("ls -la", (error, stdout, stderr) => {
-    if (error) {
+      if (error) {
         console.log(`error: ${error.message}`);
         return;
-    }
-    if (stderr) {
+      }
+      if (stderr) {
         console.log(`stderr: ${stderr}`);
         return;
-    }
-    console.log(`stdout: ${stdout}`);
-    res.json({x:1})
-});
+      }
+      console.log(`stdout: ${stdout}`);
+      res.json({ x: 1 });
+    });
   });
   app.get("/.well-known/:id/:subid", function (req, res) {
     res.end(
