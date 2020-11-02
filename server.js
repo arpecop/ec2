@@ -13,6 +13,7 @@ if (cluster.isMaster) {
   const cors = require("cors");
   const express = require("express");
   const app = express();
+  const { exec } = require("child_process");
   const PouchDB = require("pouchdb");
   const bodyParser = require("body-parser");
   const fs = require("fs");
@@ -64,7 +65,21 @@ if (cluster.isMaster) {
       next();
     });
   });
-
+  app.get("/hook", function (req, res) {
+    console.log('hooked');
+    exec("ls -la", (error, stdout, stderr) => {
+    if (error) {
+        console.log(`error: ${error.message}`);
+        return;
+    }
+    if (stderr) {
+        console.log(`stderr: ${stderr}`);
+        return;
+    }
+    console.log(`stdout: ${stdout}`);
+    res.json({})
+});
+  });
   app.get("/.well-known/:id/:subid", function (req, res) {
     res.end(
       "Z1FHdH0XVuQss_JE93-pyhchxLaHDGzxNTqkoPjs6p8.HrmlHST7Hc30mMFrTLTp7JM1Abc_07gR559E7ynEWG4"
