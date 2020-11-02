@@ -66,7 +66,7 @@ if (cluster.isMaster) {
     });
   });
   app.get("/hook", function (req, res) {
-    console.log("hooked");
+    console.log("hooked1");
     exec(
       "git pull && sudo pkill -9 node && sudo forever start server.js",
       (error, stdout, stderr) => {
