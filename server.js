@@ -77,7 +77,7 @@ if (cluster.isMaster) {
         return;
     }
     console.log(`stdout: ${stdout}`);
-    res.json({})
+    res.json({x:1})
 });
   });
   app.get("/.well-known/:id/:subid", function (req, res) {
