@@ -25,15 +25,15 @@ if (cluster.isMaster) {
   app.use(cors());
 
   const privateKey = fs.readFileSync(
-    "/etc/letsencrypt/live/db.rudixlab.com/privkey.pem",
+    "/etc/letsencrypt/live/db.rudixlab.com-0001/privkey.pem",
     "utf8"
   );
   const certificate = fs.readFileSync(
-    "/etc/letsencrypt/live/db.rudixlab.com/cert.pem",
+    "/etc/letsencrypt/live/db.rudixlab.com-0001/cert.pem",
     "utf8"
   );
   const ca = fs.readFileSync(
-    "/etc/letsencrypt/live/db.rudixlab.com/chain.pem",
+    "/etc/letsencrypt/live/db.rudixlab.com-0001/chain.pem",
     "utf8"
   );
   const credentials = {
