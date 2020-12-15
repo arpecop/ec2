@@ -19,7 +19,7 @@ if (cluster.isMaster) {
   const fs = require("fs");
   const http = require("http");
   const https = require("https");
-  const TempPouchDB = PouchDB.defaults({ prefix: "/db/db/" });
+  const TempPouchDB = PouchDB.defaults({ prefix: "/db/" });
   app.use(compression());
   app.use(bodyParser.json());
   app.use(cors());
@@ -88,33 +88,7 @@ if (cluster.isMaster) {
       "Z1FHdH0XVuQss_JE93-pyhchxLaHDGzxNTqkoPjs6p8.HrmlHST7Hc30mMFrTLTp7JM1Abc_07gR559E7ynEWG4"
     );
   });
-  app.get("/heartbeat", authenticatedRoute, function (req, res) {
-    res.json({});
-  });
-  app.get("/del/:db/:id", authenticatedRoute, function (req, res) {
-    const dbc = require("nano")(
-      "http://arpecop:maximus@localhost/" + req.params.db
-    );
-    dbc.get(req.params.id, (err, doc) => {
-      if (!err && doc.username === res.locals.user.username) {
-        dbc.insert({ _id: req.params.id, _rev: doc._rev }, (e, docMod) => {
-          res.json(docMod);
-        });
-      }
-    });
-  });
-  app.post("/db/:id", authenticatedRoute, function (req, res) {
-    const dbc = require("nano")(
-      "http://arpecop:maximus@localhost/" + req.params.id
-    );
-    dbc.insert({ username: res.locals.user.username, ...req.body }, function (
-      err,
-      body
-    ) {
-      res.json(err || body);
-    });
-  });
-  app.use("/", require("express-pouchdb")(TempPouchDB));
+
   const httpServer = http.createServer(app);
   const httpsServer = https.createServer(credentials, app);
 
