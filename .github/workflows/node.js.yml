@@ -1,22 +1,16 @@
-# This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
-# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
-
-name: Node.js CI
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
+name: scp files
+on: [push]
 jobs:
   build:
+    name: Build
     runs-on: ubuntu-latest
-
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-      - uses: actions/checkout@v2
-      - run: curl http://db.rudixlab.com/hook
+      - uses: actions/checkout@master
+      - name: copy file via ssh password
+        uses: appleboy/scp-action@master
+        with:
+          host: 34.249.33.3
+          username: ubuntu
+          key: ${{ secrets.KEY }}
+          source: "tests/a.txt,tests/b.txt"
+          target: "test"

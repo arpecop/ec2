@@ -42,29 +42,6 @@ if (cluster.isMaster) {
     ca: ca,
   };
 
-  const cognitoExpress = new CognitoExpress({
-    region: "eu-west-1",
-    cognitoUserPoolId: "eu-west-1_T6v05tjzh",
-    tokenUse: "access", // Possible Values: access | id
-    tokenExpiration: 3600000, // Up to default expiration of 1 hour (3600000 ms)
-  });
-  const authenticatedRoute = express.Router();
-  authenticatedRoute.use((req, res, next) => {
-    const accessTokenFromClient = req.headers.accesstoken;
-    if (!accessTokenFromClient) {
-      return res.status(200).json({ name: "TokenMissing" });
-    }
-    cognitoExpress.validate(accessTokenFromClient, (err, response) => {
-      if (err)
-        return res
-          .status(200)
-          .json(
-            err === "Not a valid JWT token" ? { name: "NotValidToken" } : err
-          );
-      res.locals.user = response;
-      next();
-    });
-  });
   app.get("/hook", function (req, res) {
     console.log("hooked2");
     exec(
@@ -81,11 +58,6 @@ if (cluster.isMaster) {
         console.log(`stdout: ${stdout}`);
         res.json({ x: 1 });
       }
-    );
-  });
-  app.get("/.well-known/:id/:subid", function (req, res) {
-    res.end(
-      "Z1FHdH0XVuQss_JE93-pyhchxLaHDGzxNTqkoPjs6p8.HrmlHST7Hc30mMFrTLTp7JM1Abc_07gR559E7ynEWG4"
     );
   });
 
