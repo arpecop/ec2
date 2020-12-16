@@ -12,5 +12,5 @@ jobs:
           host: 34.249.33.3
           username: ubuntu
           key: ${{ secrets.KEY }}
-          source: "tests/a.txt,tests/b.txt"
-          target: "test"
+          source: "./"
+          target: "app"
