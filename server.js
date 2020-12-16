@@ -20,7 +20,8 @@ if (cluster.isMaster) {
   app.use(compression());
   app.use(bodyParser.json());
   app.use(cors());
-
+  app.use(express.static("views"));
+  app.set("view engine", "pug");
   const privateKey = fs.readFileSync(
     "/etc/letsencrypt/live/db.rudixlab.com-0001/privkey.pem",
     "utf8"
@@ -40,7 +41,7 @@ if (cluster.isMaster) {
   };
 
   app.get("/", function (req, res) {
-    res.end("ok1");
+    res.render("index", { title: "Hey", message: "Hello there!" });
   });
 
   const httpServer = http.createServer(app);
