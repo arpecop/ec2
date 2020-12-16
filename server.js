@@ -3,23 +3,20 @@ const cluster = require("cluster");
 const port = process.env.PORT || 80;
 if (cluster.isMaster) {
   cluster.fork();
+  cluster.fork();
   cluster.on("exit", (worker) => {
     console.log("Worker %d died :(", worker.id);
     cluster.fork();
   });
 } else {
-  const CognitoExpress = require("cognito-express");
   const compression = require("compression");
   const cors = require("cors");
   const express = require("express");
   const app = express();
-  const { exec } = require("child_process");
-  const PouchDB = require("pouchdb");
   const bodyParser = require("body-parser");
   const fs = require("fs");
   const http = require("http");
   const https = require("https");
-  const TempPouchDB = PouchDB.defaults({ prefix: "/db/" });
   app.use(compression());
   app.use(bodyParser.json());
   app.use(cors());
@@ -43,8 +40,7 @@ if (cluster.isMaster) {
   };
 
   app.get("/", function (req, res) {
-    console.log("hooked2");
-    res.end("ok");
+    res.end("ok1");
   });
 
   const httpServer = http.createServer(app);
