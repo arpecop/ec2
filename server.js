@@ -90,7 +90,7 @@ if (cluster.isMaster) {
       descending: true,
       limit: 1,
     });
-    console.log(post.content.child);
+
     const index = await readFile("./views/single.html");
     res.end(ejs.render(index, post));
   });
