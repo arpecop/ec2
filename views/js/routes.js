@@ -1,32 +1,9 @@
 var routes = [
   // Index page
-  {
-    path: "/",
-    url: "./index.html",
-    name: "page-home",
-  },
-  // Home page 2
-  {
-    path: "/home/",
-    url: "./pages/home-second.html",
-    name: "page-home-second",
-  },
-  // Home page 3
-  {
-    path: "/homethird/",
-    url: "./pages/home-third.html",
-    name: "page-home-third",
-  },
-  // Profile
-  {
-    path: "/profile/",
-    url: "./pages/profile.html",
-    name: "page-profile",
-  },
-  // Single
+
   {
     path: "/single/",
-    url: "./pages/single.html",
+    url: "/2088239",
     name: "page-single",
   },
   // Blog Style 1

@@ -13,12 +13,14 @@ if (cluster.isMaster) {
   const compression = require("compression");
   const cors = require("cors");
   const express = require("express");
+  const async = require("async");
   const app = express();
   const bodyParser = require("body-parser");
   const fs = require("fs");
   const ejs = require("ejs");
   const http = require("http");
   const https = require("https");
+  const { query } = require("./src/helpers/db");
   app.use(compression());
   app.use(bodyParser.json());
   app.use(cors());
@@ -56,11 +58,40 @@ if (cluster.isMaster) {
     const index = await readFile("./views/index1.html");
     res.end(ejs.render(index, JSON.parse(json)));
   });
-
-  app.get("/:id", async function (req, res) {
+  app.get("/routes.js", async function (req, res) {
+    res.set("Content-Type", "application/javascript");
     const json = await readFile("/tmp/items.json");
-    const index = await readFile("./views/pages/single.html");
-    res.end(ejs.render(index, JSON.parse(json)));
+    const xjson = JSON.parse(json);
+    const arr = [];
+    res.write("var routes = [");
+    async.each(
+      [...xjson.part1, ...xjson.part2, ...xjson.part3],
+      function (file, callback) {
+        arr.push(
+          '{ path: "/' +
+            file.vreme +
+            '/",url: "/' +
+            file.vreme +
+            '",name: "' +
+            file.vreme +
+            '"}'
+        );
+        callback();
+      },
+      function (err) {
+        res.end(arr.join(",") + "];");
+      }
+    );
+  });
+  app.get("/:id", async function (req, res) {
+    const post = await query({
+      collection: "crunch",
+      id: Math.round(req.params.id),
+      limit: 1,
+    });
+    console.log(req.params.id, post);
+    const index = await readFile("./views/single.html");
+    res.end(ejs.render(index, post));
   });
 
   const httpServer = http.createServer(app);
