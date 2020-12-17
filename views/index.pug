@@ -19,6 +19,14 @@ html(lang='en')
           .page-content
             .homepage-header
               .newsman-page-gradient
+              // Navbar
+              .navbar.navbar-transparent.safe-areas
+                .navbar-bg
+                .navbar-inner
+                  .left  
+                  .right
+                    a.link.icon-only
+              // Today news
               .newsman-block
                 .newsman-block-title.display-flex.align-items-center.justify-content-space-between
                   div
@@ -30,47 +38,55 @@ html(lang='en')
                   .swiper-container.list-posts-full-bg-swipper
                     .swiper-wrapper
                       // Slide
-                      .swiper-slide(data-color='rgb(214, 63, 168)')
-                        // POST FULL BG
-                        .post-full-bg
-                          .post-content.margin-top.display-flex.flex-direction-column.justify-content-flex-end.newsman-object-fit
-                            img(src='./img/01.jpg' alt='1')
-                            .post-title
-                              a(href='/single/')
-                                h2.no-margin-bottom Refreshing Spring Fashion Trends You Can Wear
-                        .newsman-block
-                          .newsman-block-title.display-flex.align-items-center.justify-content-space-between
-                            div
-                              .block-title-medium.no-margin.block-title.text-semibold Hot topics
-                              .newsman-opacity.block-title.no-margin.newsman-block-subtitle Read trending news
-                            .newsman-badge
-                              a.badge.bg-color-white.text-color-black(href='#') SEE ALL
-                          .newsman-block-content
-                            .blog-list-wrapper
-                              .blog-list.display-flex.align-items-start.flex-direction-row-reverse
-                                .blog-list-img.newsman-object-fit
-                                  img(src='./img/09.jpg' alt='bl1')
-                                .blog-list-infos.margin-right.margin-top
-                                  h2.margin-bottom-half.no-margin-top
+                      each val, index in part1
+                        .swiper-slide(data-color='rgb(214, 63, 168)')
+                          // POST FULL BG
+                          .post-full-bg
+                            .post-content.margin-top.display-flex.flex-direction-column.justify-content-flex-end.newsman-object-fit
+                              img(src='./img/01.jpg' alt='1')
+                              .post-title
+                                a(href='/single/')
+                                  h2.no-margin-bottom val.title
+                         
+                          .newsman-block
+                            .newsman-block-title.display-flex.align-items-center.justify-content-space-between
+                              div
+                                .block-title-medium.no-margin.block-title.text-semibold Hot topics
+                                .newsman-opacity.block-title.no-margin.newsman-block-subtitle Read trending news
+                              .newsman-badge
+                                a.badge.bg-color-white.text-color-black(href='#') SEE ALL
+                            .newsman-block-content
+                              .blog-list-wrapper
+                                .blog-list.display-flex.align-items-start.flex-direction-row-reverse
+                                  .blog-list-img.newsman-object-fit
+                                    img(src='./img/09.jpg' alt='bl1')
+                                  .blog-list-infos.margin-right.margin-top
+                                    h2.margin-bottom-half.no-margin-top
+                                      a(href='/single/')
+                                        | Physical distancing. Image created
+                                        | by Samuel Rodriguez.
+                                    span Sience . 26 May, 2020
+                          // World News TV
+                          .newsman-block.no-border
+                            .newsman-block-title.display-flex.align-items-center.justify-content-space-between
+                              div
+                                .block-title-medium.no-margin.block-title.text-semibold World News TV
+                                .newsman-opacity.block-title.no-margin.newsman-block-subtitle Read trending news
+                              .newsman-badge
+                                a.badge.bg-color-white.text-color-black(href='#') SEE ALL
+                            .newsman-block-content
+                              #masonry
+                                .masonry-item
+                                  img.masonry-img(src='./img/04.jpg' alt='m1')
+                                  .post-title
                                     a(href='/single/')
-                                      | Physical distancing. Image created
-                                      | by Samuel Rodriguez.
-                                  span Sience . 26 May, 2020
-                        // World News TV
-                        .newsman-block.no-border
-                          .newsman-block-title.display-flex.align-items-center.justify-content-space-between
-                            div
-                              .block-title-medium.no-margin.block-title.text-semibold World News TV
-                              .newsman-opacity.block-title.no-margin.newsman-block-subtitle Read trending news
-                            .newsman-badge
-                              a.badge.bg-color-white.text-color-black(href='#') SEE ALL
-                          .newsman-block-content
-                            #masonry
-                              .masonry-item
-                                img.masonry-img(src='./img/04.jpg' alt='m1')
-                                .post-title
-                                  a(href='/single/')
-                                    h2.no-margin-bottom Refreshing Spring Fashion Trends You Can Wear
+                                      h2.no-margin-bottom Refreshing Spring Fashion Trends You Can Wear
+                          // / section
+                          // FIX F7
+                          #fix-f7
+                          // /FIX F7
+                          // Toolbar
+                          // /Toolbar
     script(src='js/macy.js')
     script(src='js/feather.min.js')
     script(src='js/framework7.bundle.min.js')

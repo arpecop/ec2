@@ -41,7 +41,9 @@ if (cluster.isMaster) {
   };
 
   app.get("/", function (req, res) {
-    res.render("index", { title: "Hey", message: "Hello there!" });
+    fs.readFile("/tmp/items.json", "utf8", (err, data) => {
+      res.render("index", JSON.parse(data));
+    });
   });
 
   const httpServer = http.createServer(app);
