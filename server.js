@@ -87,9 +87,10 @@ if (cluster.isMaster) {
     const post = await query({
       collection: "crunch",
       id: Math.round(req.params.id),
+      descending: true,
       limit: 1,
     });
-    console.log(req.params.id, post);
+    console.log(Math.round(req.params.id), post.vreme);
     const index = await readFile("./views/single.html");
     res.end(ejs.render(index, post));
   });

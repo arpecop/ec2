@@ -30,5 +30,4 @@ async function cronx() {
 
 cron.schedule("* * * * *", async () => {
   await cronx();
-  console.log("cronned");
 });
