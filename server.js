@@ -42,6 +42,7 @@ if (cluster.isMaster) {
 
   app.get("/", function (req, res) {
     fs.readFile("/tmp/items.json", "utf8", (err, data) => {
+      console.log(data);
       res.render("index", JSON.parse(data));
     });
   });
