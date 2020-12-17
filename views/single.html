@@ -34,7 +34,11 @@
               </div>
             </div>
             <div class="single-post-content margin-top">
-              dsds
+              <% content.child.forEach(function(student){%>
+                <p>
+                  <%= student.tag==='p' ? student.child[0].text :' ' %>
+                </p>
+                <% }); %>
             </div>
           </div>
         </div>
