@@ -57,6 +57,12 @@ if (cluster.isMaster) {
     res.end(ejs.render(index, JSON.parse(json)));
   });
 
+  app.get("/:id", async function (req, res) {
+    const json = await readFile("/tmp/items.json");
+    const index = await readFile("./views/pages/single.html");
+    res.end(ejs.render(index, JSON.parse(json)));
+  });
+
   const httpServer = http.createServer(app);
   const httpsServer = https.createServer(credentials, app);
 

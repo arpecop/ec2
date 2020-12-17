@@ -26,14 +26,14 @@ Template:		Newsman - Blog & Magazine Mobile HTML Template
 14. BIG LIST SINGLE
 */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
 
 /*===============================================*/
 /* 01. GENERAL	 						    	 */
 /*===============================================*/
 
 .md {
-  --f7-font-family: 'Poppins', sans-serif;
+  --f7-font-family: "Poppins", sans-serif;
 }
 
 #fix-f7 {
@@ -45,12 +45,12 @@ img {
 }
 
 .title-navbar-transparent {
-  opacity: 1!important;
+  opacity: 1 !important;
 }
 
 .md .tabbar-label {
-    font-size: 10px;
-    padding-top: 3px;
+  font-size: 10px;
+  padding-top: 3px;
 }
 
 .newsman-object-fit {
@@ -88,10 +88,10 @@ img {
   right: 0;
   height: 500px;
   z-index: 2;
-  transition: all .3s ease-in-out;
-  -webkit-transition: all .3s ease-in-out;
-  -moz-transition: all .3s ease-in-out;
-  opacity: .6;
+  transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  opacity: 0.6;
 }
 
 .homepage-header .navbar,
@@ -104,13 +104,17 @@ img {
 }
 
 .newsman-opacity {
-  opacity: .6;
+  opacity: 0.6;
 }
 
 .newsman-block {
-  padding-left: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-left));
-  padding-right: calc(var(--f7-block-padding-horizontal) + var(--f7-safe-area-right));
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  padding-left: calc(
+    var(--f7-block-padding-horizontal) + var(--f7-safe-area-left)
+  );
+  padding-right: calc(
+    var(--f7-block-padding-horizontal) + var(--f7-safe-area-right)
+  );
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   padding-bottom: 20px;
   margin-top: 20px;
 }
@@ -127,7 +131,7 @@ img {
 
 .newsman-block-subtitle {
   font-weight: 600;
-  margin-top: 3px!important;
+  margin-top: 3px !important;
 }
 
 .newsman-block-content {
@@ -135,7 +139,7 @@ img {
 }
 
 .post-author-extra {
-  opacity: .8;
+  opacity: 0.8;
 }
 
 /*===============================================*/
@@ -149,11 +153,11 @@ img {
 .post-full-bg .fab > a {
   width: 45px;
   height: 45px;
-  background: #e3bf54
+  background: #e3bf54;
 }
 
 .post-full-bg .fab > a svg {
-  stroke : #202020
+  stroke: #202020;
 }
 
 .post-full-bg .post-content {
@@ -175,14 +179,18 @@ img {
 
 .post-full-bg .post-content img,
 .post-full-bg .post-content {
-    border-radius: 10px;
+  border-radius: 10px;
 }
-
 
 .post-content .post-title {
   z-index: 14;
   padding: 20% 20px 20px 20px;
-  background-image: linear-gradient(to bottom,rgba(0,0,0,0) 0, rgba(0,0,0,0.8) 100%, rgba(0,0,0,0.9) 100%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.8) 100%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -194,14 +202,14 @@ img {
 .author-card-img {
   height: 150px;
   border-radius: 10px;
-  background-repeat: no-repeat!important;
+  background-repeat: no-repeat !important;
   /* uncomment this if you use png image user */
   /*background-size: contain!important;*/
   /*background-position: right bottom!important;*/
 }
 
 .author-card-img .badge {
-  opacity: .7;
+  opacity: 0.7;
 }
 
 /*===============================================*/
@@ -211,7 +219,7 @@ img {
 .blog-list {
   padding-bottom: 20px;
   margin-top: 20px;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .blog-list:first-child {
@@ -247,7 +255,7 @@ img {
 
 .blog-list-infos span {
   font-weight: bold;
-  opacity: .86;
+  opacity: 0.86;
 }
 
 @media only screen and (min-width: 576px) {
@@ -260,7 +268,6 @@ img {
     font-size: 18px;
     line-height: 30px;
   }
-
 }
 
 @media only screen and (min-width: 768px) {
@@ -296,7 +303,12 @@ img {
   padding: 10px;
   font-size: 10px;
   line-height: 20px;
-  background-image: linear-gradient(to bottom,rgba(0,0,0,0) 0, rgba(0,0,0,0.8) 100%, rgba(0,0,0,0.9) 100%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.8) 100%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
 }
 .masonry-item-single-element .post-title {
   font-size: 14px;
@@ -317,7 +329,6 @@ img {
   border-top-right-radius: 10px;
 }
 
-
 .post-card-img img {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -332,7 +343,12 @@ img {
 .post-card-img h3 {
   z-index: 14px;
   padding: 0px 15px 15px;
-  background-image: linear-gradient(to bottom,rgba(0,0,0,0) 0, rgba(0,0,0,0.8) 100%, rgba(0,0,0,0.9) 100%);
+  background-image: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0,
+    rgba(0, 0, 0, 0.8) 100%,
+    rgba(0, 0, 0, 0.9) 100%
+  );
   z-index: 14;
   margin: 0px;
 }
@@ -353,13 +369,12 @@ img {
   font-size: 18px;
 }
 
-
 /*===============================================*/
 /* 08. SOCIAL MEDIA					    	     */
 /*===============================================*/
 
 .social-media-trends .post-author-img {
-  width:65px;
+  width: 65px;
   height: 65px;
   position: relative;
   margin-left: 20px;
@@ -396,17 +411,16 @@ img {
 }
 
 .bg-color-twitter {
-  background: #55acee!important;
+  background: #55acee !important;
 }
 
 .bg-color-fb {
-  background: #3b5999!important;
+  background: #3b5999 !important;
 }
 
 .bg-color-linkedin {
-  background: #0077B5!important;
+  background: #0077b5 !important;
 }
-
 
 /*===============================================*/
 /* 09. SEARCH INPUT					    	     */
@@ -424,10 +438,10 @@ img {
 }
 
 .input {
-  padding: 16px 50px 16px!important;
+  padding: 16px 50px 16px !important;
   width: 100%;
-  border-radius: 30px!important;
-  background-color: var(--f7-block-strong-bg-color)!important;
+  border-radius: 30px !important;
+  background-color: var(--f7-block-strong-bg-color) !important;
 }
 
 .tags {
@@ -441,8 +455,8 @@ img {
 }
 
 .tags .newsman-badge a {
-    font-size: 12px;
-    padding: 15px 30px;
+  font-size: 12px;
+  padding: 15px 30px;
 }
 
 /*===============================================*/
@@ -529,13 +543,13 @@ img {
 .profile h2 {
   text-align: center;
   font-weight: 600;
-  letter-spacing: 1px
+  letter-spacing: 1px;
 }
 
 .profile .button {
   width: auto;
   margin: 0 auto;
-  border-width: 1px
+  border-width: 1px;
 }
 
 .profile-info {
@@ -554,7 +568,7 @@ img {
 }
 
 .list-friends .post-author-img {
-  width:65px;
+  width: 65px;
   height: 65px;
   position: relative;
   margin-top: 10px;
@@ -562,7 +576,7 @@ img {
 
 .list-friends > div {
   padding-bottom: 16px;
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   margin-left: 0;
 }
 
@@ -603,7 +617,7 @@ img {
 }
 
 .img-with-legend div {
-  background-color: var(--f7-block-strong-bg-color)!important;
+  background-color: var(--f7-block-strong-bg-color) !important;
   text-align: center;
   position: relative;
   bottom: 5px;
@@ -618,7 +632,7 @@ img {
 /*===============================================*/
 
 .not-found-page-gradient {
-  background-color: rgb(41,35,109);
+  background-color: rgb(41, 35, 109);
 }
 
 .not-found-page-content {
@@ -637,14 +651,13 @@ img {
 .not-found-page-content h1 {
   font-size: 60px;
   margin-bottom: 10px;
-  margin-top: 0px
+  margin-top: 0px;
 }
 
 .not-found-page-content h2 {
   margin-bottom: 10px;
-  margin-top: 0px
+  margin-top: 0px;
 }
-
 
 .not-found-page-content .button {
   width: auto;
@@ -662,7 +675,7 @@ img {
 /*===============================================*/
 
 .big-list-single-post {
-  border-bottom: 1px solid rgba(255, 255, 255, .08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .big-list-post > div:last-child {
