@@ -1,5 +1,5 @@
 const cluster = require("cluster");
-
+const cron = require("./src/cron");
 const port = process.env.PORT || 80;
 if (cluster.isMaster) {
   cluster.fork();
