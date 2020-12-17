@@ -60,12 +60,10 @@ html(lang='en')
                                 each val, index in part2
                                   .blog-list.display-flex.align-items-start.flex-direction-row-reverse
                                     .blog-list-img.newsman-object-fit
-                                      img(src='./img/09.jpg' alt='bl1')
+                                      img(src=val.image alt='bl1')
                                     .blog-list-infos.margin-right.margin-top
                                       h2.margin-bottom-half.no-margin-top
                                         a(href='/single/')=val.title
-                                           
-                                      span Sience . 26 May, 2020
                           // World News TV
                           .newsman-block.no-border
                             .newsman-block-title.display-flex.align-items-center.justify-content-space-between
