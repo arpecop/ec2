@@ -36,15 +36,15 @@ if (cluster.isMaster) {
     });
   }
   const privateKey = fs.readFileSync(
-    "/etc/letsencrypt/live/db.rudixlab.com-0001/privkey.pem",
+    "/etc/letsencrypt/live/noticiasti.xyz/privkey.pem",
     "utf8"
   );
   const certificate = fs.readFileSync(
-    "/etc/letsencrypt/live/db.rudixlab.com-0001/cert.pem",
+    "/etc/letsencrypt/live/noticiasti.xyz/cert.pem",
     "utf8"
   );
   const ca = fs.readFileSync(
-    "/etc/letsencrypt/live/db.rudixlab.com-0001/chain.pem",
+    "/etc/letsencrypt/live/noticiasti.xyz/chain.pem",
     "utf8"
   );
   const credentials = {
