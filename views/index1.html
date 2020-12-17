@@ -2,18 +2,18 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport"
-    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="theme-color" content="#000000">
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:">
-  <title>Newsman</title>
-  <link rel="stylesheet" href="css/framework7.bundle.min.css">
-  <link rel="stylesheet" href="css/app.css">
-  <link rel="apple-touch-icon" href="img/f7-icon-square.png">
-  <link rel="icon" href="img/f7-icon.png">
+    content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, viewport-fit=cover" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="theme-color" content="#000000" />
+  <meta http-equiv="Content-Security-Policy" content="default-src * 'self' 'unsafe-inline' 'unsafe-eval' data: gap:" />
+  <title>Noticias TI</title>
+  <link rel="stylesheet" href="css/framework7.bundle.min.css" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="apple-touch-icon" href="img/f7-icon-square.png" />
+  <link rel="icon" href="img/f7-icon.png" />
 </head>
 
 <body class="theme-dark color-theme-white">
@@ -22,16 +22,14 @@
       <div class="page page-home">
         <div class="page-content">
           <div class="homepage-header">
-            <div class="newsman-page-gradient">
-            </div>
+            <div class="newsman-page-gradient"></div>
             <!-- Navbar -->
             <div class="navbar navbar-transparent safe-areas">
               <div class="navbar-bg"></div>
               <div class="navbar-inner">
-                <div class="left"> </div>
+                <div class="left"></div>
                 <div class="right">
-                  <a class="link icon-only">
-                  </a>
+                  <a class="link icon-only"> </a>
                 </div>
               </div>
             </div>
@@ -39,8 +37,12 @@
             <div class="newsman-block">
               <div class="newsman-block-title display-flex align-items-center justify-content-space-between">
                 <div>
-                  <div class="block-title-medium no-margin block-title text-semibold">Today News</div>
-                  <div class="newsman-opacity block-title no-margin newsman-block-subtitle">Read trending news</div>
+                  <div class="block-title-medium no-margin block-title text-semibold">
+                    Noticias TI
+                  </div>
+                  <div class="newsman-opacity block-title no-margin newsman-block-subtitle">
+                    Read trending news
+                  </div>
                 </div>
                 <div class="newsman-badge">
                   <a href="#" class="badge bg-color-white text-color-black">SEE ALL</a>
@@ -49,46 +51,28 @@
               <div class="newsman-block-content">
                 <div class="swiper-container list-posts-full-bg-swipper">
                   <div class="swiper-wrapper">
-                    <!-- Slide -->
-                    <div class="swiper-slide" data-color="rgb(214, 63, 168)">
-                      <!-- POST FULL BG -->
-                      <div class="post-full-bg">
 
-                        <div
-                          class="post-content margin-top display-flex flex-direction-column justify-content-flex-end newsman-object-fit">
-                          <img src="./img/01.jpg" alt="1">
-                          <div class="post-title">
-                            <a href="/single/">
-                              <h2 class="no-margin-bottom">Refreshing1 Spring Fashion Trends You Can Wear</h2>
-                            </a>
+                    <!-- Slide -->
+                    <% part1.forEach(function(student){%>
+                      <div class="swiper-slide" data-color="rgb(214, 63, 168)">
+                        <!-- POST FULL BG -->
+                        <div class="post-full-bg">
+                          <div
+                            class="post-content margin-top display-flex flex-direction-column justify-content-flex-end newsman-object-fit">
+                            <img src="<%= student.image %>" alt="1" />
+                            <div class="post-title">
+                              <a href="/single/">
+                                <h2 class="no-margin-bottom">
+                                  <%= student.title %>
+                                </h2>
+                              </a>
+                            </div>
                           </div>
                         </div>
-
+                        <!-- /POST FULL BG -->
                       </div>
-                      <!-- /POST FULL BG -->
-                    </div>
-                    <!-- / Slide -->
+                      <% }); %>
 
-
-                    <!-- Slide -->
-                    <!-- Slide -->
-                    <div class="swiper-slide" data-color="rgb(214, 63, 168)">
-                      <!-- POST FULL BG -->
-                      <div class="post-full-bg">
-
-                        <div
-                          class="post-content margin-top display-flex flex-direction-column justify-content-flex-end newsman-object-fit">
-                          <img src="./img/01.jpg" alt="1">
-                          <div class="post-title">
-                            <a href="/single/">
-                              <h2 class="no-margin-bottom">Refreshing2 Spring Fashion Trends You Can Wear</h2>
-                            </a>
-                          </div>
-                        </div>
-
-                      </div>
-                      <!-- /POST FULL BG -->
-                    </div>
                   </div>
                 </div>
               </div>
@@ -101,8 +85,12 @@
           <div class="newsman-block">
             <div class="newsman-block-title display-flex align-items-center justify-content-space-between">
               <div>
-                <div class="block-title-medium no-margin block-title text-semibold">Hot topics</div>
-                <div class="newsman-opacity block-title no-margin newsman-block-subtitle">Read trending news</div>
+                <div class="block-title-medium no-margin block-title text-semibold">
+                  Hot topics
+                </div>
+                <div class="newsman-opacity block-title no-margin newsman-block-subtitle">
+                  Read trending news
+                </div>
               </div>
               <div class="newsman-badge">
                 <a href="#" class="badge bg-color-white text-color-black">SEE ALL</a>
@@ -110,17 +98,21 @@
             </div>
             <div class="newsman-block-content">
               <div class="blog-list-wrapper">
-                <div class="blog-list display-flex align-items-start flex-direction-row-reverse">
-                  <div class="blog-list-img newsman-object-fit">
-                    <img src="./img/09.jpg" alt="bl1">
-                  </div>
-                  <div class="blog-list-infos margin-right margin-top">
-                    <h2 class="margin-bottom-half no-margin-top"><a href="/single/">Physical distancing. Image created
-                        by Samuel Rodriguez.</a></h2>
-                    <span>Sience . 26 May, 2020</span>
-                  </div>
-                </div>
+                <% part2.forEach(function(student){%>
+                  <div class="blog-list display-flex align-items-start flex-direction-row-reverse">
+                    <div class="blog-list-img newsman-object-fit">
+                      <img src="<%= student.image %>" alt="bl1" />
+                    </div>
+                    <div class="blog-list-infos margin-right margin-top">
+                      <h2 class="margin-bottom-half no-margin-top">
+                        <a href="/single/">
+                          <%= student.title %>
+                        </a>
+                      </h2>
 
+                    </div>
+                  </div>
+                  <% }); %>
               </div>
             </div>
           </div>
@@ -128,8 +120,12 @@
           <div class="newsman-block no-border">
             <div class="newsman-block-title display-flex align-items-center justify-content-space-between">
               <div>
-                <div class="block-title-medium no-margin block-title text-semibold">World News TV</div>
-                <div class="newsman-opacity block-title no-margin newsman-block-subtitle">Read trending news</div>
+                <div class="block-title-medium no-margin block-title text-semibold">
+                  World News TV
+                </div>
+                <div class="newsman-opacity block-title no-margin newsman-block-subtitle">
+                  Read trending news
+                </div>
               </div>
               <div class="newsman-badge">
                 <a href="#" class="badge bg-color-white text-color-black">SEE ALL</a>
@@ -137,22 +133,24 @@
             </div>
             <div class="newsman-block-content">
               <div id="masonry">
-                <div class="masonry-item">
-                  <img src="./img/04.jpg" alt="m1" class="masonry-img">
-                  <div class="post-title">
-                    <a href="/single/">
-                      <h2 class="no-margin-bottom">Refreshing Spring Fashion Trends You Can Wear</h2>
-                    </a>
+                <% part3.forEach(function(student){%>
+                  <div class="masonry-item">
+                    <img src="<%= student.image %>" alt="m1" class="masonry-img" />
+                    <div class="post-title">
+                      <a href="/single/">
+                        <h2 class="no-margin-bottom">
+                          <%= student.title %>
+                        </h2>
+                      </a>
+                    </div>
                   </div>
-                </div>
-
+                  <% }); %>
               </div>
             </div>
           </div>
           <!-- / section -->
           <!-- FIX F7 -->
-          <div id="fix-f7">
-          </div>
+          <div id="fix-f7"></div>
           <!-- /FIX F7 -->
         </div>
       </div>

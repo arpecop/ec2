@@ -20,7 +20,7 @@ async function cronx() {
 
     fs.writeFile(
       "/tmp/items.json",
-      JSON.stringify({ part1: result[0], part2: result[1], part3: result[3] }),
+      JSON.stringify({ part1: result[0], part2: result[1], part3: result[2] }),
       function () {
         resolve();
       }

@@ -1,6 +1,7 @@
 const cluster = require("cluster");
 const cron = require("./src/cron");
 const port = process.env.PORT || 80;
+
 if (cluster.isMaster) {
   cluster.fork();
   cluster.fork();
@@ -15,13 +16,23 @@ if (cluster.isMaster) {
   const app = express();
   const bodyParser = require("body-parser");
   const fs = require("fs");
+  const ejs = require("ejs");
   const http = require("http");
   const https = require("https");
   app.use(compression());
   app.use(bodyParser.json());
   app.use(cors());
   app.use(express.static("views"));
-  app.set("view engine", "pug");
+  function readFile(path) {
+    return new Promise((resolve) => {
+      fs.readFile(path, "utf8", (err, data) => {
+        if (err) {
+          resolve(null);
+        }
+        resolve(data);
+      });
+    });
+  }
   const privateKey = fs.readFileSync(
     "/etc/letsencrypt/live/db.rudixlab.com-0001/privkey.pem",
     "utf8"
@@ -40,11 +51,10 @@ if (cluster.isMaster) {
     ca: ca,
   };
 
-  app.get("/", function (req, res) {
-    fs.readFile("/tmp/items.json", "utf8", (err, data) => {
-      console.log(data);
-      res.render("index", JSON.parse(data));
-    });
+  app.get("/", async function (req, res) {
+    const json = await readFile("/tmp/items.json");
+    const index = await readFile("./views/index1.html");
+    res.end(ejs.render(index, JSON.parse(json)));
   });
 
   const httpServer = http.createServer(app);
