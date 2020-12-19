@@ -64,7 +64,7 @@ if (cluster.isMaster) {
     const json = JSON.parse(json1);
 
     [...json.part1, ...json.part2, ...json.part3].map((item) => {
-      res.write("https://noticias.ti/" + item.vreme + "\n");
+      res.write("https://noticiasti.xyz/" + item.vreme + "\n");
     });
     res.end("");
   });
