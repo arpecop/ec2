@@ -58,6 +58,16 @@ if (cluster.isMaster) {
     const index = await readFile("./views/index1.html");
     res.end(ejs.render(index, JSON.parse(json)));
   });
+  app.get("/sitemap", async function (req, res) {
+    res.set("Content-Type", "text/plain");
+    const json1 = await readFile("/tmp/items.json");
+    const json = JSON.parse(json1);
+
+    [...json.part1, ...json.part2, ...json.part3].map((item) => {
+      res.write("https://noticias.ti/" + item.vreme + "\n");
+    });
+    res.end("");
+  });
   app.get("/routes.js", async function (req, res) {
     res.set("Content-Type", "application/javascript");
     const json = await readFile("/tmp/items.json");
