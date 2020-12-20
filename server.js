@@ -36,7 +36,7 @@ if (cluster.isMaster) {
 
   app.get("/", async function (req, res) {
     const json = await readFile("/tmp/items.json");
-    const index = await readFile("./views/noticias/index1.html");
+    const index = await readFile("./views/noticias/index.html");
     res.end(ejs.render(index, JSON.parse(json)));
   });
   app.get("/sitemap", async function (req, res) {
@@ -49,7 +49,7 @@ if (cluster.isMaster) {
     });
     res.end("");
   });
-  app.get("/routes.js", async function (req, res) {
+  app.get("/routes", async function (req, res) {
     res.set("Content-Type", "application/javascript");
     const json = await readFile("/tmp/items.json");
     const xjson = JSON.parse(json);
@@ -80,7 +80,7 @@ if (cluster.isMaster) {
   app.get("/userz/:id", function (req, res) {
     res.end("ok " + req.params.id);
   });
-  app.get("/noticias/:id", async function (req, res) {
+  app.get("/:id", async function (req, res) {
     const post = await query({
       collection: "crunch",
       id: Math.round(req.params.id),
