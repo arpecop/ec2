@@ -23,7 +23,6 @@ if (cluster.isMaster) {
   app.use(compression());
   app.use(bodyParser.json());
   app.use(cors());
-  app.use(express.static("views"));
   function readFile(path) {
     return new Promise((resolve) => {
       fs.readFile(path, "utf8", (err, data) => {
