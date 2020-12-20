@@ -80,7 +80,7 @@ if (cluster.isMaster) {
   app.get("/userz/:id", function (req, res) {
     res.end("ok " + req.params.id);
   });
-  app.get("/:id", async function (req, res) {
+  app.get("/noticias/:id", async function (req, res) {
     const post = await query({
       collection: "crunch",
       id: Math.round(req.params.id),
