@@ -37,7 +37,7 @@ if (cluster.isMaster) {
 
   app.get("/", async function (req, res) {
     const json = await readFile("/tmp/items.json");
-    const index = await readFile("./views/index1.html");
+    const index = await readFile("./views/noticias/index1.html");
     res.end(ejs.render(index, JSON.parse(json)));
   });
   app.get("/sitemap", async function (req, res) {
@@ -89,7 +89,7 @@ if (cluster.isMaster) {
       limit: 1,
     });
 
-    const index = await readFile("./views/single.html");
+    const index = await readFile("./views/noticias/single.html");
     res.end(ejs.render(index, post));
   });
   app.listen(3000, () => {
