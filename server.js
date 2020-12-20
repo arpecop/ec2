@@ -75,6 +75,9 @@ if (cluster.isMaster) {
       }
     );
   });
+  app.get("/porn", function (req, res) {
+    res.end("ok");
+  });
   app.get("/:id", async function (req, res) {
     const post = await query({
       collection: "crunch",
