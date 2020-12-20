@@ -75,8 +75,11 @@ if (cluster.isMaster) {
       }
     );
   });
-  app.get("/porn", function (req, res) {
+  app.get("/userz", function (req, res) {
     res.end("ok");
+  });
+  app.get("/userz/:id", function (req, res) {
+    res.end("ok " + req.params.id);
   });
   app.get("/:id", async function (req, res) {
     const post = await query({
