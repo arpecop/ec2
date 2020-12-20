@@ -18,8 +18,7 @@ if (cluster.isMaster) {
   const bodyParser = require("body-parser");
   const fs = require("fs");
   const ejs = require("ejs");
-  const http = require("http");
-  const https = require("https");
+
   const { query } = require("./src/helpers/db");
   app.use(compression());
   app.use(bodyParser.json());
@@ -35,23 +34,6 @@ if (cluster.isMaster) {
       });
     });
   }
-  const privateKey = fs.readFileSync(
-    "/etc/letsencrypt/live/noticiasti.xyz/privkey.pem",
-    "utf8"
-  );
-  const certificate = fs.readFileSync(
-    "/etc/letsencrypt/live/noticiasti.xyz/cert.pem",
-    "utf8"
-  );
-  const ca = fs.readFileSync(
-    "/etc/letsencrypt/live/noticiasti.xyz/chain.pem",
-    "utf8"
-  );
-  const credentials = {
-    key: privateKey,
-    cert: certificate,
-    ca: ca,
-  };
 
   app.get("/", async function (req, res) {
     const json = await readFile("/tmp/items.json");
@@ -104,11 +86,7 @@ if (cluster.isMaster) {
     const index = await readFile("./views/single.html");
     res.end(ejs.render(index, post));
   });
-
-  const httpServer = http.createServer(app);
-  const httpsServer = https.createServer(credentials, app);
-
-  httpServer.listen(3000, () => {
-    console.log("HTTP Server running on port 80");
+  app.listen(3000, () => {
+    console.log(`Example app listening at http://localhost:${port}`);
   });
 }
