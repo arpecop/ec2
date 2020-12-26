@@ -75,10 +75,17 @@ if (cluster.isMaster) {
     );
   });
   app.get("/userz", function (req, res) {
-    res.end("ok");
+     const post = await query({
+      collection: "crunch",
+      id: Math.round(req.params.id),
+      descending: true,
+      limit: 1,
+    });
+    const index = await readFile("./views/userz/index.html");
   });
   app.get("/userz/:id", function (req, res) {
     res.end("ok " + req.params.id);
+       const index = await readFile("./views/userz/single.html");
   });
   app.get("/:id", async function (req, res) {
     const post = await query({
