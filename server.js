@@ -76,11 +76,11 @@ if (cluster.isMaster) {
   });
   app.get("/iztegli", async function (req, res) {
     const index = await readFile("./views/iztegli/index.html");
-    res.end(ejs.render(index, post));
+    res.end(ejs.render(index, {}));
   });
   app.get("/iztegli/:id", async function (req, res) {
-    res.end("ok " + req.params.id);
     const index = await readFile("./views/userz/iztegli.html");
+    res.end(ejs.render(index, {}));
   });
   app.get("/:id", async function (req, res) {
     const post = await query({
