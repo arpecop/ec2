@@ -60,12 +60,12 @@ if (cluster.isMaster) {
       function (file, callback) {
         arr.push(
           '{ path: "/' +
-          file.vreme +
-          '/",url: "/' +
-          file.vreme +
-          '",name: "' +
-          file.vreme +
-          '"}'
+            file.vreme +
+            '/",url: "/' +
+            file.vreme +
+            '",name: "' +
+            file.vreme +
+            '"}'
         );
         callback();
       },
@@ -74,11 +74,11 @@ if (cluster.isMaster) {
       }
     );
   });
-  app.get("/iztegli", function (req, res) {
+  app.get("/iztegli", async function (req, res) {
     const index = await readFile("./views/iztegli/index.html");
     res.end(ejs.render(index, post));
   });
-  app.get("/iztegli/:id", function (req, res) {
+  app.get("/iztegli/:id", async function (req, res) {
     res.end("ok " + req.params.id);
     const index = await readFile("./views/userz/iztegli.html");
   });
