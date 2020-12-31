@@ -4,7 +4,7 @@ function query(q) {
   return new Promise((resolve) => {
     request(
       {
-        uri: "https://rudixlab.herokuapp.com/db/",
+        uri: "https://rudixlab.com/db/",
         method: "POST",
         json: q,
       },

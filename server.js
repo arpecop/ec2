@@ -89,7 +89,7 @@ if (cluster.isMaster) {
       descending: true,
       limit: 1,
     });
-
+    console.log(post);
     const index = await readFile("./views/noticias/single.html");
     res.end(ejs.render(index, post));
   });

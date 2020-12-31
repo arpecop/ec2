@@ -8,6 +8,7 @@ async function cronx() {
     descending: false,
     fields: ["title", "image", "vreme"],
   });
+
   return new Promise((resolve, reject) => {
     var result = posts.Items.reduce((resultArray, item, index) => {
       const chunkIndex = Math.floor(index / 20);
