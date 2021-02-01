@@ -93,7 +93,7 @@ if (cluster.isMaster) {
     const index = await readFile("./views/noticias/single.html");
     res.end(ejs.render(index, post));
   });
-  app.listen(3000, () => {
+  app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
   });
 }
